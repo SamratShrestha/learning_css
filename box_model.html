@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Box Model</title>
+        <style type="text/css" media="screen">
+        .text{
+            height: 70px;
+            width: 100px;
+            padding: 20px;
+            border: 1px solid;
+        }
+        .text[data-sizing="intrinsic"]{
+            width:max-content;
+            height:max-content;
+        }
+        </style>
+    </head>
+    <body>
+        <label class="toggle" for="intrinsic-switch">
+        <span class="toggle__label">Turn on intrinsic sizing</span>
+        <input type="checkbox" role="switch" id="intrinsic-switch" />
+        </div>
+      </label>
+      <p class="text" data-element="text">I am a paragraph and I have some words in itabcdlkfjdsalkfjsadlkjflsakjflkasdj.</p>
+      <script>
+          const text = document.querySelector('[data-element="text"]')
+          const x = document.querySelector("#intrinsic-switch")
+          x.addEventListener("change",()=>{
+              console.log('testi')
+              text.setAttribute("data-sizing",
+                  x.checked?"intrinsic":"extrinsic")
+          })
+      </script>
+    </body>
+</html>
