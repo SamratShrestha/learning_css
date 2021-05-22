@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Selector</title>
+        <style type="text/css" media="screen">
+            *{
+                color:hotpink;
+            }
+            section{
+                margin:1em;
+            }
+            section>div{
+                box-sizing:border-box;
+                padding:1em;
+                margin:1em;
+            }
+            article p:first-of-type{
+                color:red;
+                font-size:1.5em;
+            }
+            article p:nth-child(even){
+                color:floralwhite;
+                background-color:black
+            }
+            article p::before{
+                content:"Prefix- ";
+            }
+            [data-type]{
+                width:100px;
+                height:100px;
+                background-color:blue;
+            }
+            [data-type="primary" i]{
+                width:100px;
+                height:100px;
+                background-color:red;
+                border: 1px solid black;
+            }
+            li::marker{
+                color:red;
+            }
+            a::before {
+                content: "";
+                display: inline-block;
+                vertical-align: middle;
+                width: 1.2em;
+                height: 1.2em;
+                background-size: 100%;
+                margin-inline-end: 0.5em;
+                opacity: 0.8;
+            }
+            a[href$=".jpg"]::before{
+                background-image: url(https://web-dev.imgix.net/image/VbAJIREinuYvovrBzzvEyZOpw5w1/N79qCc0c06217YT4ofYM.png);
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <article>
+                <p>I am red and I am larger than others</p>
+                <p>I am normal size and of default color</p>
+                <p>I am normal size and of default color</p>
+                <p>I am normal size and of default color</p>
+                <p>I am normal size and of default color</p>
+                <p>I am normal size and of default color</p>
+            </article>
+        </section>
+        <section>
+            <div data-type="primary">
+            </div>
+            <div data-type="secondary"></div>
+        </section>
+        <section>
+            <li>
+                <a href="marsh.jpg">An example image</a>
+            </li>
+        </section>
+    </body>
+</html>
